@@ -1,0 +1,364 @@
+{
+  "data_summary": [
+    {
+      "split": "test",
+      "competition": "La Liga 2015/16",
+      "matches": 380,
+      "shots": 9071,
+      "goals": 945,
+      "goal_rate": 0.1042,
+      "freeze_frame_cover": 1.0,
+      "mean_statsbomb_xg": 0.0996
+    },
+    {
+      "split": "tournament",
+      "competition": "Euro 2024",
+      "matches": 51,
+      "shots": 1304,
+      "goals": 98,
+      "goal_rate": 0.0752,
+      "freeze_frame_cover": 1.0,
+      "mean_statsbomb_xg": 0.0854
+    },
+    {
+      "split": "tournament",
+      "competition": "World Cup 2022",
+      "matches": 64,
+      "shots": 1430,
+      "goals": 152,
+      "goal_rate": 0.1063,
+      "freeze_frame_cover": 1.0,
+      "mean_statsbomb_xg": 0.0964
+    },
+    {
+      "split": "train",
+      "competition": "Bundesliga 2015/16",
+      "matches": 34,
+      "shots": 830,
+      "goals": 82,
+      "goal_rate": 0.0988,
+      "freeze_frame_cover": 1.0,
+      "mean_statsbomb_xg": 0.0994
+    },
+    {
+      "split": "train",
+      "competition": "Premier League 2015/16",
+      "matches": 380,
+      "shots": 9817,
+      "goals": 914,
+      "goal_rate": 0.0931,
+      "freeze_frame_cover": 1.0,
+      "mean_statsbomb_xg": 0.0917
+    },
+    {
+      "split": "train",
+      "competition": "Serie A 2015/16",
+      "matches": 380,
+      "shots": 9877,
+      "goals": 858,
+      "goal_rate": 0.0869,
+      "freeze_frame_cover": 1.0,
+      "mean_statsbomb_xg": 0.0836
+    },
+    {
+      "split": "valid",
+      "competition": "Ligue 1 2015/16",
+      "matches": 377,
+      "shots": 8723,
+      "goals": 852,
+      "goal_rate": 0.0977,
+      "freeze_frame_cover": 1.0,
+      "mean_statsbomb_xg": 0.0921
+    }
+  ],
+  "glm_coefficients": {
+    "intercept": {
+      "coef": 1.02214,
+      "std_err": 0.38775,
+      "z": 2.63608
+    },
+    "log_distance": {
+      "coef": -1.34769,
+      "std_err": 0.11352,
+      "z": -11.87206
+    },
+    "angle": {
+      "coef": 0.59842,
+      "std_err": 0.17595,
+      "z": 3.40111
+    }
+  },
+  "gbm_tuning_top5": [
+    {
+      "learning_rate": 0.02,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 40,
+      "max_iter": 173,
+      "valid_log_loss": 0.2538613439814026
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 40,
+      "max_iter": 76,
+      "valid_log_loss": 0.254420360652481
+    },
+    {
+      "learning_rate": 0.02,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 150,
+      "max_iter": 170,
+      "valid_log_loss": 0.2544213057549573
+    },
+    {
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 150,
+      "max_iter": 84,
+      "valid_log_loss": 0.2544953488696906
+    },
+    {
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 40,
+      "max_iter": 56,
+      "valid_log_loss": 0.2545922495740791
+    }
+  ],
+  "gbm_best_params": {
+    "learning_rate": 0.02,
+    "max_leaf_nodes": 31,
+    "min_samples_leaf": 40,
+    "max_iter": 173
+  },
+  "valid_metrics": {
+    "GLM": {
+      "n_shots": 8723,
+      "goals": 852,
+      "log_loss": 0.28592697322750865,
+      "brier": 0.08040382101646472,
+      "brier_skill": 0.08825465358944373,
+      "auc": 0.7351343375545698,
+      "mean_pred_minus_rate": -0.005646485777573443,
+      "cal_slope": 0.9808593595621361,
+      "cal_intercept": 0.03334512024166761
+    },
+    "GBM": {
+      "n_shots": 8723,
+      "goals": 852,
+      "log_loss": 0.2538613439814026,
+      "brier": 0.07186185852774138,
+      "brier_skill": 0.18511689781925744,
+      "auc": 0.8104605484088199,
+      "mean_pred_minus_rate": -0.001996963534654228,
+      "cal_slope": 1.0725845993337066,
+      "cal_intercept": 0.15753191136506942
+    },
+    "StatsBomb xG": {
+      "n_shots": 8723,
+      "goals": 852,
+      "log_loss": 0.2567431561193153,
+      "brier": 0.07191351962446409,
+      "brier_skill": 0.18453108281778197,
+      "auc": 0.8040526434770057,
+      "mean_pred_minus_rate": -0.00554731166129771,
+      "cal_slope": 0.988709153804373,
+      "cal_intercept": 0.05733168180209819
+    }
+  },
+  "permutation_importance_valid": {
+    "shot_type": -5e-06,
+    "follows_dribble": 0.0,
+    "under_pressure": 3.5e-05,
+    "n_def_within_3": 6.9e-05,
+    "first_time": 0.000125,
+    "play_pattern": 0.000461,
+    "one_on_one": 0.000507,
+    "aerial_won": 0.000588,
+    "n_att_in_cone": 0.000761,
+    "technique": 0.000771,
+    "y": 0.00104,
+    "open_goal": 0.001146,
+    "gk_dist_to_line": 0.001178,
+    "gk_in_cone": 0.001893,
+    "x": 0.002465,
+    "nearest_def_dist": 0.007689,
+    "n_def_in_cone": 0.008888,
+    "body_part": 0.009379,
+    "gk_dist_to_goal": 0.00999,
+    "distance": 0.012577,
+    "angle": 0.052885
+  },
+  "test_metrics": {
+    "GLM": {
+      "n_shots": 9071,
+      "goals": 945,
+      "log_loss": 0.2923471221771055,
+      "brier": 0.08398565279098298,
+      "brier_skill": 0.10138214793866707,
+      "auc": 0.7597186247813864,
+      "mean_pred_minus_rate": -0.00726500995428192,
+      "cal_slope": 1.0838058755368896,
+      "cal_intercept": 0.2547264542625917
+    },
+    "GBM": {
+      "n_shots": 9071,
+      "goals": 945,
+      "log_loss": 0.2594450270536519,
+      "brier": 0.07480608315042082,
+      "brier_skill": 0.19960041354861213,
+      "auc": 0.82560524907313,
+      "mean_pred_minus_rate": -0.0029848663084515725,
+      "cal_slope": 1.0864098934094528,
+      "cal_intercept": 0.18968171778713988
+    },
+    "StatsBomb xG": {
+      "n_shots": 9071,
+      "goals": 945,
+      "log_loss": 0.255478152447865,
+      "brier": 0.07363374492866555,
+      "brier_skill": 0.21214403284207595,
+      "auc": 0.8327895825926837,
+      "mean_pred_minus_rate": -0.004544669739267995,
+      "cal_slope": 1.0829306396789158,
+      "cal_intercept": 0.2094755787784436
+    }
+  },
+  "test_logloss_ci": {
+    "GLM": {
+      "estimate": 0.292347,
+      "ci_low": 0.279456,
+      "ci_high": 0.305602
+    },
+    "GBM": {
+      "estimate": 0.259445,
+      "ci_low": 0.247046,
+      "ci_high": 0.272292
+    },
+    "StatsBomb xG": {
+      "estimate": 0.255478,
+      "ci_low": 0.243606,
+      "ci_high": 0.268509
+    },
+    "GBM - GLM": {
+      "estimate": -0.032902,
+      "ci_low": -0.038253,
+      "ci_high": -0.027891
+    },
+    "GBM - StatsBomb": {
+      "estimate": 0.003967,
+      "ci_low": 0.001026,
+      "ci_high": 0.007035
+    }
+  },
+  "test_ablations": {
+    "GBM: distance+angle only": {
+      "n_shots": 9071,
+      "goals": 945,
+      "log_loss": 0.29006598888115,
+      "brier": 0.08390292786633179,
+      "brier_skill": 0.10226727642944633,
+      "auc": 0.7615588866881016,
+      "mean_pred_minus_rate": -0.006820233836719952,
+      "cal_slope": 1.1046177717255796,
+      "cal_intercept": 0.2847762732702524
+    },
+    "GBM: no freeze-frame features": {
+      "n_shots": 9071,
+      "goals": 945,
+      "log_loss": 0.2694041792856361,
+      "brier": 0.07784320843763678,
+      "brier_skill": 0.16710420840710505,
+      "auc": 0.8078499740202916,
+      "mean_pred_minus_rate": -0.00361041631791352,
+      "cal_slope": 1.090142883729564,
+      "cal_intercept": 0.20957373628614967
+    }
+  },
+  "tournament_metrics": {
+    "GLM": {
+      "n_shots": 2734,
+      "goals": 250,
+      "log_loss": 0.2760773842215545,
+      "brier": 0.07711172628288435,
+      "brier_skill": 0.07184665284449732,
+      "auc": 0.732622383252818,
+      "mean_pred_minus_rate": 0.007392315292745255,
+      "cal_slope": 0.9610101869374345,
+      "cal_intercept": -0.1703531567279544
+    },
+    "GBM": {
+      "n_shots": 2734,
+      "goals": 250,
+      "log_loss": 0.25149216826228726,
+      "brier": 0.07098409666580842,
+      "brier_skill": 0.14560171207315542,
+      "auc": 0.7959549114331723,
+      "mean_pred_minus_rate": 0.002781735689810466,
+      "cal_slope": 0.997258787319056,
+      "cal_intercept": -0.04405256905688747
+    },
+    "StatsBomb xG": {
+      "n_shots": 2734,
+      "goals": 250,
+      "log_loss": 0.24676243042053184,
+      "brier": 0.06920440031334622,
+      "brier_skill": 0.16702298230122015,
+      "auc": 0.8040539452495974,
+      "mean_pred_minus_rate": -0.00025968819524506415,
+      "cal_slope": 1.0341277283194594,
+      "cal_intercept": 0.06803335517796039
+    }
+  },
+  "tournament_logloss_ci": {
+    "GLM": {
+      "estimate": 0.276077,
+      "ci_low": 0.251176,
+      "ci_high": 0.300925
+    },
+    "GBM": {
+      "estimate": 0.251492,
+      "ci_low": 0.227693,
+      "ci_high": 0.273542
+    },
+    "StatsBomb xG": {
+      "estimate": 0.246762,
+      "ci_low": 0.223945,
+      "ci_high": 0.268921
+    },
+    "GBM - GLM": {
+      "estimate": -0.024585,
+      "ci_low": -0.03275,
+      "ci_high": -0.016919
+    },
+    "GBM - StatsBomb": {
+      "estimate": 0.00473,
+      "ci_low": -0.000528,
+      "ci_high": 0.009547
+    }
+  },
+  "tournament_ablations": {
+    "GBM: distance+angle only": {
+      "n_shots": 2734,
+      "goals": 250,
+      "log_loss": 0.2724718133885023,
+      "brier": 0.07622447936245169,
+      "brier_skill": 0.0825259780087656,
+      "auc": 0.74158615136876,
+      "mean_pred_minus_rate": 0.00879909646851193,
+      "cal_slope": 1.0080436767475305,
+      "cal_intercept": -0.09548874021927607
+    },
+    "GBM: no freeze-frame features": {
+      "n_shots": 2734,
+      "goals": 250,
+      "log_loss": 0.25759498127958236,
+      "brier": 0.07240538821986084,
+      "brier_skill": 0.1284943721552524,
+      "auc": 0.7810628019323671,
+      "mean_pred_minus_rate": 0.008928779145822782,
+      "cal_slope": 1.028973441090346,
+      "cal_intercept": -0.0655419616744517
+    }
+  }
+}

@@ -1,0 +1,9 @@
+[project]
+name = "xg-model"
+version = "0.1.0"
+description = "Expected-goals model on StatsBomb open data with leave-league-out validation"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
